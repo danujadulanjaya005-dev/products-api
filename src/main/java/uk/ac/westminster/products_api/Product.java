@@ -37,4 +37,7 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
+    public String getSummary() {
+        return getName() + " — £" + getPrice();
+    }
 }
