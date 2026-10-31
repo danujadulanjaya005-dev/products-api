@@ -8,12 +8,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/products")
 public class ProductController {
-//    @GetMapping("/{id}")
+    //    @GetMapping("/{id}")
 //    public Product getByID(@PathVariable Long id) {
 //        return new Product(id, "Laptop", 999.99);
 //    }
-@Autowired
-private ProductService productService;
+    @Autowired
+    private ProductService productService;
 
     @GetMapping("/products")
     public List<Product> getAllProducts() {
@@ -34,9 +34,15 @@ private ProductService productService;
     public void deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
     }
+
     @GetMapping("/products/search")
     public List<Product> search(@RequestParam String name) {
         return productService.findByName(name);
+    }
+
+    @GetMapping("/products/summaries")
+    public List<String> getSummaries() {
+        return productService.getAllSummaries();
     }
 }
 
